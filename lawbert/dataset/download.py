@@ -16,7 +16,7 @@ logging.basicConfig(
     datefmt="%H:%M:%S",
     stream=sys.stderr,
 )
-DOWNLOAD_PATH = os.path.join("..", "..", "data", "pdfs")
+DOWNLOAD_PATH = os.path.join("data", "pdfs")
 
 logger = logging.getLogger(__name__)
 
@@ -57,7 +57,7 @@ async def bulk_crawl_and_write(urls: set, **kwargs) -> None:
 
 
 if __name__ == "__main__":
-    with open(os.path.join("..", "..", "data", "dummy.txt")) as f:
+    with open(os.path.join("data", "links.txt")) as f:
         urls = set(map(str.strip, f))
 
     asyncio.run(bulk_crawl_and_write(urls=urls))
